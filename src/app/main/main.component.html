@@ -1,0 +1,62 @@
+<div class="mndisp" style="background-color:mediumslateblue">
+    <div class="header m-0 pt-2" style="background-color: none; color: whitesmoke; ">
+        <span class="headerlabel m-2 align-text-center"
+            style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; opacity: 50%; font-size: 50px;">
+            DAILY WORK LOGBOOK
+        </span>
+    </div>
+
+    <div class="otpanel" style="background-image: url('/assets/Images/s5.png');">
+        <span class="headerlabel h1"
+            style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; opacity: 0%; position: absolute;">
+            DAILY WORK LOGBOOK
+        </span>
+
+        <div class="container">
+            <div class="row ">
+                <div class="offset-md-2 col-lg-5 col-7 offset-lg-4 offset-md-3">
+                    <div class="mnpanel bg-white ">
+
+                        <div class="mnpanel-header pt-3">
+                            <h3 style="font-size: 40px;font-weight: 800; text-align: center;">Login Here</h3>
+                        </div>
+                        <br />
+                        <form [formGroup]="loginform" (ngSubmit)="logdata()">
+                            <div class="mnpanel-body ">
+
+                                <div class="formgroup p-2">
+                                    <div class="input-type">
+                                        <span class="fa fa-envelope" aria-hidden="true"></span>
+                                        <input type="text" class="form-control" name="username" placeholder="Username"
+                                            formControlName="username">
+                                    </div>
+                                    <span class="help-block form-error text-danger small"
+                                        *ngIf="loginform.getError('required','username') && loginform.controls['username'].touched">*Invalid
+                                        Username</span>
+                                </div>
+
+                                <div class="formgroup p-2">
+                                    <div class="input-type">
+                                        <span class="fa fa-lock" aria-hidden="true"></span>
+                                        <input [type]="type" name="password" class="form-control" placeholder="Password"
+                                            formControlName="password">
+                                        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                    </div>
+                                    <span class="help-block form-error text-danger small"
+                                        *ngIf="loginform.getError('required','password') && loginform.controls['password'].touched">*Invalid
+                                        password</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-light mt-3 pt-2" style="font-size: 30px;font-weight: 800;"
+                                type="submit">Submit</button>
+                            <div class="text-center pt-3 mb-1 text-muted"> Don't have any Account?<a id="forget"
+                                    routerLink="/signup">
+                                    Sign up</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

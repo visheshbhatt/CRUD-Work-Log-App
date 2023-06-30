@@ -1,0 +1,72 @@
+<div class="mndisp" style="background-color: #080501; scrollbar-track-color: #080501; height: auto;">
+  <div class="mnheader h2 m-0 p-2">
+    <span class="headerlabel h2 align-text-center">
+      DAILY WORK LOGBOOK
+    </span>
+    <i class="fa fa-user-circle-o p-1" aria-expanded="false" aria-hidden="true" type="button" data-toggle="dropdown"
+      style="cursor: pointer; color: thistle; float: right; margin-right: 20px;"></i>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li><a class="dropdown-item" routerLink="/logtab">Add todo task</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" routerLink="/main">Logout</a></li>
+    </ul>
+  </div>
+  <div class="ltpanel" style="background-image: url('/assets/Images/s6.jpeg');">
+    <table class="table table-bordered table-hover">
+      <thead style="font-weight: 800; font-size: 20px; text-align: center;">
+        <tr>
+          <th scope="col">Days</th>
+          <th scope="col">Date</th>
+          <th scope="col">Start time(Work)</th>
+          <th scope="col">Platform</th>
+          <th scope="col">Todo Work</th>
+          <th scope="col">Doubts</th>
+          <th scope="col">Reported</th>
+          <th scope="col">Conclusion</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of tododatalist">
+          <td>{{ row.days }}</td>
+
+          <td>{{ row.date }}</td>
+
+          <td>{{ row.time }}</td>
+
+          <td>{{ row.platform }}</td>
+
+          <td>{{ row.todo }}</td>
+
+          <td>{{ row.doubts }}</td>
+
+          <td>{{ row.reported }}</td>
+
+          <td>
+            {{ row.conclusion == "yes" ? "Yes Solved" : "Not Solved" }}
+          </td>
+
+          <td>
+            <button class="btn btn-dark d-inline-block" style="width: 100%; font-size: 20px; font-weight: 800"
+              type="submit" routerLink="/logtab/{{ row.id }}">
+              Edit
+            </button>
+
+            <button class="btn btn-danger mt-2 p-2 d-inline-block"
+              style="width: 100%; font-size: 20px; font-weight: 800" (click)="deletetodo(row)" type="submit">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+  <div class="col">
+    <div class=" img mx-auto justify-content-center align-items-center" *ngFor="let row of tododatalist">
+      <img src="assets/Images/{{row.workimagefiles}}" alt="workimagefiles" class="workimagefiles">
+    </div>
+  </div>
+</div>

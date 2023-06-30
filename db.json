@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "days": "1",
+      "date": "2023-06-29",
+      "time": "14:19",
+      "doubts": "No Doubts",
+      "todo": "Finished making crud app and started learning more functions",
+      "reported": "Nayanbhai",
+      "platform": "Javascript",
+      "workimagefiles": "C:\\fakepath\\s5.png",
+      "conclusion": "",
+      "id": 1
+    },
+    {
+      "days": "",
+      "date": "",
+      "time": "",
+      "doubts": "",
+      "todo": "",
+      "reported": "",
+      "platform": "",
+      "conclusion": "yes",
+      "id": 5
+    }
+  ],
+  "signupusers": [
+    {
+      "firstname": "vishesh",
+      "lastname": "bhatt",
+      "username": "vbking",
+      "email": "visheshbhatt07@gmail.com",
+      "pass": "12345",
+      "id": 1
+    },
+    {
+      "firstname": "Harsh",
+      "lastname": "Patel",
+      "username": "hp0001",
+      "email": "harsh123@gmail.com",
+      "pass": "harsh23",
+      "id": 2
+    },
+    {
+      "firstname": "rupal",
+      "lastname": "bhatt",
+      "username": "rupal0712",
+      "email": "rupal0712@gmail.com",
+      "pass": "rupal0712",
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

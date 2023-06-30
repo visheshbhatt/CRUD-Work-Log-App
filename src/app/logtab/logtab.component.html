@@ -1,0 +1,180 @@
+<div class="mndisp" style="
+    background-color: rgb(22, 4, 40);
+    background-repeat: no-repeat;
+    display: block;
+  ">
+    <div class="mnheader h2 m-0 p-2">
+        <span class="headerlabel h2 align-text-center"> DAILY WORK LOGBOOK </span>
+        <i class="fa fa-user-circle-o p-1" aria-hidden="true" type="button" data-toggle="dropdown"
+            style="cursor: pointer; color: thistle; float: right; margin-right: 20px"></i>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" routerLink="/showlist">Display data</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
+            <li>
+                <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" routerLink="/main">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="ltpanel" style="
+      background-image: url('/assets/Images/s5.jpeg');
+      margin-top: 40px;
+      height: 600px;
+      object-fit: fill;
+    ">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-lg-5">
+                    <div class="wkpanel border bg-white">
+                        <h3 style="
+                font-size: 40px;
+                font-weight: 800;
+                margin-left: 20;
+                text-align: center;
+              ">
+                            Add Todo list
+                        </h3>
+                        <div class="wkpanel-body p-3">
+                            <form [formGroup]="listform" (ngSubmit)="submitForm()">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-field">
+                                            <input type="number range-none" class="form-control" placeholder="Day"
+                                                formControlName="days" />
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="col">
+                                        <input type="date" class="form-control" id="datepicker"
+                                            formControlName="date" />
+                                        <span class="help-block form-error text-danger small" *ngIf="
+                        listform.getError('required', 'date') &&
+                        listform.controls['date'].touched
+                      ">*username invalid</span>
+                                        <br />
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="time" class="form-control" id="time" formControlName="time" />
+                                        <span class="help-block form-error text-danger small" *ngIf="
+                        listform.getError('required', 'time') &&
+                        listform.controls['time'].touched
+                      ">*username invalid</span>
+                                        <br />
+                                    </div>
+                                </div>
+
+                                <!-- ALL DOUBTS -->
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-field">
+                                            <textarea class="form-control" aria-label="With textarea"
+                                                placeholder="Doubts" formControlName="doubts"></textarea>
+                                        </div>
+                                        <br />
+                                    </div>
+
+                                    <!-- COLUMN 2 -->
+                                    <!-- WORK RECORD -->
+                                    <div class="col">
+                                        <div class="input-field">
+                                            <textarea class="form-control" aria-label="With textarea"
+                                                placeholder="TO-DO LIST" formControlName="todo"></textarea>
+                                        </div>
+                                        <span class="help-block form-error text-danger small" *ngIf="
+                        listform.getError('required', 'todo') &&
+                        listform.controls['todo'].touched
+                      ">*username invalid</span>
+                                        <br />
+                                    </div>
+
+                                    <!-- REPORTED -->
+                                    <div class="col">
+                                        <div class="input-field">
+                                            <input type="text" class="form-control" placeholder="Reported"
+                                                aria-label="With textarea" formControlName="reported" />
+                                        </div>
+                                        <span class="help-block form-error text-danger small" *ngIf="
+                        listform.getError('required', 'reported') &&
+                        listform.controls['reported'].touched
+                      ">*username invalid</span>
+                                        <br />
+                                    </div>
+                                </div>
+
+                                <div class="row mt-1 align-text-center">
+                                    <div class="col">
+                                        <select class="form-select" formControlName="platform"
+                                            placeholder="Select Platform">
+                                            <option value="default" selected disabled>
+                                                Select Platform
+                                            </option>
+                                            <option *ngFor="let option of PlatformOptions;">
+                                                {{ option | titlecase }}
+                                            </option>
+                                        </select>
+                                        <span class="help-block form-error text-danger small" *ngIf="
+                        listform.getError('required', 'platform') &&
+                        listform.controls['platform'].touched
+                      ">*username invalid</span>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <!-- Images -->
+                                <div class="row align-text-center">
+                                    <div class="col">
+                                        <label for="Workimagefiles">Insert Images(Work)</label>
+                                        <input type="file" class="form-control" id="workimagefiles"  formControlName="workimagefiles"  accept="Images/*" (change)="onFileChange($event)"/>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <label>Conclusion <br /></label>
+                                <div class="row mt-2 align-text-center">
+                                    <div class="col">
+                                        <!-- CONCLUSION -->
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" id="yes"
+                                                formControlName="conclusion" value="yes" />
+                                            <label class="form-check-label" for="yes">Yes !! Solved
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" id="no"
+                                                formControlName="conclusion" value="no" />
+                                            <label class="form-check-label" for="no">No Not !! Solved</label>
+                                        </div>
+                                        <span class="help-block form-error text-danger small" *ngIf="
+                        listform.getError('required', 'conclusion') &&
+                        listform.controls['conclusion'].touched
+                      ">*username invalid</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-light mt-3" *ngIf="!isUpdate" style="
+                    font-size: 40px;
+                    font-weight: 800;
+                    width: 100%;
+                    text-align: center;
+                  ">
+                                    Insert data
+                                </button>
+                                <button class="btn btn-light mt-1" *ngIf="isUpdate" style="
+                    font-size: 20px;
+                    font-weight: 800;
+                    width: 100%;
+                    text-align: center;
+                  ">
+                                    Update data
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

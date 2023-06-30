@@ -1,0 +1,93 @@
+<div class="mndisp" style="background-color:#080501;">
+    <div class="header m-0 p-2"
+        style="background-color: none; color: whitesmoke; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; opacity: 50%; font-size: 50px;">
+        <span class="headerlabel m-2 align-text-center">
+            DAILY WORK LOGBOOK
+        </span>
+
+    </div>
+    <div class="otpanel" style="background-image: url('/assets/Images/characters.png');">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-lg-5 col-7 offset-lg-4 offset-md-3">
+                    <div class="mnpanel bg-white ">
+
+                        <div class="mnpanel-header p-1">
+                            <h3 style="font-size: 40px;font-weight: 800; text-align: center;"> Add Data</h3>
+                        </div>
+                        <br />
+                        <div class="mnpanel-body pt-1 ">
+                            <form [formGroup]="signupform" (ngSubmit)="reginp()">
+
+                                <div class="formgroup p-2">
+                                    <div class="input-type">
+                                        <span class="	fa fa-address-card p-2"> </span>
+                                        <input type="text" placeholder="First Name" class="form-control"
+                                            name="firstname" formControlName="firstname">
+                                    </div>
+
+                                    <span class="help-block form-error text-danger small"
+                                        *ngIf="signupform.getError('required','firstname') && signupform.controls['firstname'].touched">*Please
+                                        fill out your first name in this field, example "John".</span>
+                                </div>
+
+                                <div class="formgroup p-2">
+                                    <div class="input-type">
+                                        <span class="fa fa-address-card-o p-2"> </span>
+                                        <input type="text" placeholder="Last Name" class="form-control" name="lastname"
+                                            formControlName="lastname">
+                                    </div>
+
+                                    <span class="help-block form-error text-danger small"
+                                        *ngIf="signupform.get('lastname') && signupform.controls['lastname'].touched">*Please
+                                        fill out your last name in this field, example "Smith".</span>
+                                </div>
+
+                                <div class="formgroup p-2">
+                                    <div class="input-type">
+                                        <span class="fa fa-user p-2"> </span>
+                                        <input type="text" placeholder="Username" class="form-control" name="username"
+                                            formControlName="username">
+                                    </div>
+                                    <span class="help-block form-error text-danger small"
+                                        *ngIf="signupform.getError('required','username') && signupform.controls['username'].touched">*username
+                                        invalid</span>
+
+                                </div>
+                                <div class="formgroup p-2">
+                                    <div class="input-type">
+                                        <span class="fa fa-inbox p-2"> </span>
+                                        <input type="text" placeholder="Email address" class="form-control" name="email"
+                                            formControlName="email">
+                                    </div>
+
+                                    <span class="help-block form-error text-danger small"
+                                        *ngIf="signupform.getError('required','email') && signupform.controls['email'].touched">*Please
+                                        add your email address, example "john.smith@email.com".</span>
+                                </div>
+
+                                <div class="formgroup p-2">
+                                    <div class="input-type">
+                                        <span class="fa fa-lock p-2"></span>
+                                        <input [type]="type" style="border: none;" placeholder="Password"
+                                            class="form-control" name="password" formControlName="pass">
+                                        <span class="fa {{eyeIcon}}" (click)="hideShowPass()"></span>
+                                    </div>
+                                    <span class="help-block form-error text-danger small"
+                                        *ngIf=" signupform.getError('required','pass') && signupform.controls['pass'].touched">*password
+                                        is invalid</span>
+                                </div>
+
+                                <button type="submit" class="btn btn-dark mt-3 "
+                                    style="font-size: 40px;font-weight: 800;" disabled="invalid">Sign Up</button>
+                                <div class="text-center pt-3 mb-2 pb-3 text-muted"> Already have any an Account?<a
+                                        id="forget" routerLink="/main">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
